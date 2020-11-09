@@ -1,10 +1,4 @@
-# {{ ansible_managed }}
-
-sub bad_bot_detection {
-
-    if (
-      req.http.user-agent ~ "^$"
-      || req.http.user-agent ~ "^Java"
+    if ( req.http.user-agent ~ "^Java"
       || req.http.user-agent ~ "^Jakarta"
       || req.http.user-agent ~ "IDBot"
       || req.http.user-agent ~ "id-search"
@@ -129,4 +123,3 @@ sub bad_bot_detection {
     ) {
         return(synth(403, "Forbidden Bots"));
     }
-}    
